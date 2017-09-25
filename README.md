@@ -23,3 +23,18 @@ copy to web directory:
 in two php files edit user,password and table - to name of HC2 and if you change database name from default 'fibaro'
 I use this for monitor 2 two HC2 by internet (one by VPN, second by https
 For see message use any sql browser or excel with mysql connect or by file ......_log.php for corect HC2
+
+
+
+IMPORTANT!!!
+Because of bug in startscene with arguments, if you use national character in message, You need before call use:
+
+function encode(str)
+  if (str) then
+    str = string.gsub (str, "([^%w])",
+    function (c) return string.format ("%%%02X", string.byte(c)) end)
+  end
+  return str 
+end
+
+msg=encode(msg)
