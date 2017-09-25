@@ -25,7 +25,8 @@ or paste:
 		  ["info"]      = 6,
 		  ["debug"]     = 7
 --]]
-local IP = "x.x.x.x" -- ip/dns of php/sql server
+local IP = "192.168.1.99" -- ip/dns of php/sql server
+local name = "HC123456" -- name of HC2 system, called php file for this system and table
 local sev = "info"
 local src = nil
 local msg = nil
@@ -77,7 +78,7 @@ local Diacritic = {["Ą"]="A",["Ć"]="C",["Ę"]="E",["Ł"]="L",["Ń"]="N",["Ś"]
   
 msg = urlencode(conv_char(msg))
 data = urlencode(os.date("%Y-%m-%d %H:%M:%S"))
-query = 'http://'..IP..'/HC12345.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg
+query = 'http://'..IP..'/'..name..'.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg
 --query = 'https://'..IP..'/fibaro.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg  -- for ssl connection 
 GETClient:request(query, {
 
