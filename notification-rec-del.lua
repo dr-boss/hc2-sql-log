@@ -39,7 +39,7 @@ for k,v in pairs (notification) do
 
 -- if bloceced for delete
 -- --[[  
-  elseif notification[k]["type"] == "GenericSystemNotification" and notification[k]["canBeDeleted"] == true then
+  elseif notification[k]["type"] == "GenericSystemNotification" and notification[k]["canBeDeleted"] == false then
   fibaro:startScene(sqlid, {{sev = notification[k].priority}, {src = dev}, {msg = encode(tostring(os.date('%Y-%m-%d %H:%M:%S', notification[k].created))..' - '..notification[k].data.name..' - '..notification[k].type..'!')}})
   fibaro:debug(notification[k].id..' - '..notification[k].created..' - '..notification[k].data.name..' - '..notification[k].type..'!')
   HomeCenter.NotificationService.update(notification[k].id, {
