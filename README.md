@@ -26,7 +26,7 @@ For see message use any sql browser or excel with mysql connect or by file .....
 
 
 
-IMPORTANT!!!
+IMPORTANT!!! when you use sql-syslog from your VDs or scenes
 Because of bug in startscene with arguments, if you use national character in message, You need before call use:
 
 function encode(str)
