@@ -14,7 +14,7 @@ CREATE TABLE `debug` (      -- ex. name of monitored HC2
   `HC2_Time` datetime NOT NULL,
   `HC2_Level` varchar(10) NOT NULL,
   `HC2_Source` varchar(5) NOT NULL,
-  `HC2_MEssage` varchar(200) CHARACTER SET utf8 NOT NULL
+  `HC2_Message` varchar(200) CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin2;
 copy to web directory:
 fibaro.php                  -- this file is called by HC2, change login dana for SQL server
