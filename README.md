@@ -9,8 +9,8 @@ if You can store another message remotly modify and use in Your scenes or device
     fibaro:startScene(76, {{sev = "info"}, {src = dev}, {msg = "test"}})
 
 on Your sql server (NAS):
-    CREATE DATABASE HC12345      -- or another or use any existing
-    CREATE TABLE `debug` (      -- ex. name of monitored HC2
+    CREATE DATABASE fibaro      -- or another or use any existing
+    CREATE TABLE `hc123456` (      -- ex. name of monitored HC2
       `SQL_Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
       `HC2_Time` datetime NOT NULL,
       `HC2_Level` varchar(10) NOT NULL,
@@ -18,7 +18,8 @@ on Your sql server (NAS):
       `HC2_Message` varchar(200) CHARACTER SET utf8 NOT NULL
     ) ENGINE=MyISAM DEFAULT CHARSET=latin2;
 copy to web directory:
-    HC12345.php                  -- this file is called by HC2, change login dana for SQL server. Importand use the sane name in http string in sql-sys-log.lua
-    HC12345_log.php              -- for test, display last 20 message.
-edit user and password in php files, and if need database name
+  fibaro.php as  HC12345.php          -- this file is called by HC2, Importand use the sane name in http string in sql-sys-log.lua
+  fibaro_log.php as  HC12345_log.php  -- for test, display last 20 message.
+in two php files edit user,password and table - to name of HC2 and if you change database name from default 'fibaro'
 I use this for monitor 2 two HC2 by internet (one by VPN, second by https
+For see message use any sql browser or excel with mysql connect or by file ......_log.php for corect HC2
