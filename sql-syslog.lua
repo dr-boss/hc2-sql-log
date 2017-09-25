@@ -13,12 +13,12 @@ or paste:
 
   first parameter (76) is the number this Scene
   sev = the severity (textual) of the message, see the value bilow (not the number)
-  msg = the nome of the VD ou Scene who call this Scene to indicate the origine of the message
-  mess = Your message
+  src = the nome of the VD ou Scene who call this Scene to indicate the origine of the message
+  msg = Your message
   sev - example take from syslog values 
-   	  ["emergency"] = 0,
+   		  ["emergency"] = 0,
 		  ["alert"]     = 1,
-  	  ["critical"]  = 2,
+	  	  ["critical"]  = 2,
 		  ["error"]     = 3,
 		  ["warning"]   = 4,
 		  ["notice"]    = 5,
@@ -45,6 +45,17 @@ local http = net.HTTPClient()
 data = os.date("%Y-%m-%d")..'%20'..os.date("%H:%M:%S")  
   
 local GETClient = net.HTTPClient()
+
+function urldecode(s)
+  return string.gsub(s, '%%(%x%x)', 
+    function (hex) return string.char(tonumber(hex,16)) end)
+end
+msg=urldecode(msg)
+fibaro:debug('=============================')
+fibaro:debug(data)
+fibaro:debug(sev)
+fibaro:debug(src)
+fibaro:debug(msg)
 
   
 function urlencode(str)
