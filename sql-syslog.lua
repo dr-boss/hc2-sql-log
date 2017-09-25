@@ -66,7 +66,7 @@ local Diacritic = {["Ą"]="A",["Ć"]="C",["Ę"]="E",["Ł"]="L",["Ń"]="N",["Ś"]
   
 msg = urlencode(conv_char(msg))
 data = urlencode(os.date("%Y-%m-%d %H:%M:%S"))
-query = 'http://'..IP..'/fibaro.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg
+query = 'http://'..IP..'/HC12345.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg
 --query = 'https://'..IP..'/fibaro.php?hctime='.. data ..'&hcid=' .. src .. '&hclev=' .. sev .. '&hcmsg='..msg  -- for ssl connection 
 GETClient:request(query, {
 
