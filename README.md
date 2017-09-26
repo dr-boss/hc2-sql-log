@@ -1,6 +1,7 @@
 # hc2-sql-log
 log notification to sql database v.2
 this scrips I use for two remotly controled HC2. Scirpts send to my NAS notifications importand for my administation and delete not interested for users. 
+If HC2 lost connection with SQL/WEB server it does not erase any notification until the connection is recovered and when notifications are copied successfully. 
 Installation
     create scene notification-rec-del.lua           -- add to timer scene ex every 1 or 2h
     create scene sql-syslog.lua                     -- set runing instance for 5 or more (when many VD or scenes call in smae time to send message)
